@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Epock</title>
+<meta name="description" content="Your day as 24 hour-coins. See your gold free time and plan it.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#262624" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#FAF9F5" media="(prefers-color-scheme: light)">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preload" href="fonts/source-serif-4-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=000fa6fc85">
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand" aria-label="Epock">Ep<span class="o" aria-hidden="true"></span>ck</div>
+    <span class="ctx" id="ctx"></span>
+    <button type="button" class="syncchip" id="syncchip" data-act="go-setup" aria-label="Google Calendar sync status"><span class="dot" aria-hidden="true"></span><span id="synctext">Starting</span></button>
+  </header>
+  <main id="view"></main>
+</div>
+<nav class="dock" id="dock" aria-label="Views">
+  <button type="button" data-act="tab" data-tab="today"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.4"/></svg><span>Today</span></button>
+  <button type="button" data-act="tab" data-tab="tomorrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M19.5 14.6A7.8 7.8 0 0 1 9.4 4.5a7.8 7.8 0 1 0 10.1 10.1z"/></svg><span>Tomorrow</span></button>
+  <button type="button" data-act="tab" data-tab="cal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3.2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>Calendar</span></button>
+  <button type="button" data-act="tab" data-tab="setup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2.2"/><circle cx="9" cy="17" r="2.2"/></svg><span>Setup</span></button>
+</nav>
+<div class="scrim" id="scrim" hidden></div>
+<section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Details" hidden></section>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<noscript><p style="padding:24px">Epock needs JavaScript turned on.</p></noscript>
+<script src="js/engine.js?v=000fa6fc85"></script>
+<script src="js/ics.js?v=000fa6fc85"></script>
+<script src="js/bridge.js?v=000fa6fc85"></script>
+<script src="js/app.js?v=000fa6fc85"></script>
+<script>
+if ('serviceWorker' in navigator) window.addEventListener('load', function () { navigator.serviceWorker.register('sw.js').catch(function () { /* offline mode unavailable */ }); });
+</script>
+</body>
+</html>
